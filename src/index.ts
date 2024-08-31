@@ -1,6 +1,6 @@
 import { validateAndFormatUrl, fbidToUrl } from './utils/url';
 import { EventData, ScrapeOptions } from './types';
-import { scrapeEvent } from './scraper';
+import { scrapeEvent,scrapeEventHTML } from './scraper';
 
 export { EventData, ScrapeOptions };
 
@@ -10,6 +10,12 @@ export const scrapeFbEvent = async (
 ): Promise<EventData> => {
   const formattedUrl = validateAndFormatUrl(url);
   return await scrapeEvent(formattedUrl, options);
+};
+export const scrapeFbEvent = async (
+  html: string,
+  options: ScrapeOptions = {}
+): Promise<EventData> => {
+  return await scrapeEventHTML(html, options);
 };
 
 export const scrapeFbEventFromFbid = async (
