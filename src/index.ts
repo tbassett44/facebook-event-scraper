@@ -11,7 +11,7 @@ export const scrapeFbEvent = async (
   const formattedUrl = validateAndFormatUrl(url);
   return await scrapeEvent(formattedUrl, options);
 };
-export const scrapeFbEvent = async (
+export const scrapeFbEventHTML = async (
   html: string,
   options: ScrapeOptions = {}
 ): Promise<EventData> => {
